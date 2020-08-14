@@ -4,8 +4,24 @@ Returns: a List of integers
 '''
 def moving_zeroes(arr):
     # Your code here
+    read = 0
+    write = 0
 
-    pass
+    if arr == []:  # ====== Returns empty list is list is empty ======
+        return []
+    
+    for i in arr:                   # ====== If the element is 0, add only to 'read' ======
+        if i != 0 or i is False:
+            arr[write] = arr[read]
+            read += 1
+            write += 1
+        else:
+            read += 1
+        
+    for zeros in range(write, len(arr)):
+        arr[zeros] = 0
+
+    return arr
 
 
 if __name__ == '__main__':
